@@ -25,8 +25,22 @@
         <tbody>  
 @foreach($settings as $setting)
         <tr>
+        
 <th> <a href="/admin/setting/info/{{$setting->id}}">{{$setting->name}}</a></th>
-<th> {{$setting->value}}</th>
+<th>
+
+@if($setting->id == 14 )
+<img src="{{asset($setting->value)}}" width="100px"  height="100px"/>
+
+@else 
+
+{{$setting->value}}
+
+@endif
+
+
+ 
+ </th>
 <th><a href="/admin/setting/edit/{{$setting->id}}" class="btn btn-block btn-info btn-flat"> edit </a></th>
         </tr>
 

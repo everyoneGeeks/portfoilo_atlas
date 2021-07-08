@@ -118,5 +118,6 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Auth::routes(['register' => false, 'verify' => false]);
 
-Route::get('/home',function(){ return view('home'); });
-Route::get('/',function(){ return view('home'); });
+Route::get('/home','website@index');
+Route::get('/','website@index');
+Route::post('/email/send','website@sendEmail');

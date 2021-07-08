@@ -60,9 +60,19 @@ class HeadlineController extends Controller
         ];
         $request->validate($rules);
 
-        $headline=headline::where('id',$id)->first();
-        $headline->value=$request->value;
-        $headline->save();
+        if($id == 14){
+            $headline=headline::where('id',$id)->first();
+
+            if($request->hasFile('value')){
+                $this->SaveFile($headline,'value','value','upload/logo');
+            }
+           $headline->save();
+        }else{
+            $headline=headline::where('id',$id)->first();
+            $headline->value=$request->value;
+            $headline->save();
+        }
+
 
         Notify::success('تم تعديل بيانات  بنجاح', ' تعديل بيانات');
 

@@ -29,7 +29,7 @@
         <th> <a href="/admin/complains/info/{{$Complain->id}}"> {{$Complain->id}}</a></th> 
         <th> {{$Complain->name}}</th>   
         <th> {{$Complain->email}}</th>   
-        <th> {{$Complain->message}}</th>   
+        <th> {{str_limit($Complain->message,'50')}}</th>   
 
 <th>{{Carbon\Carbon::parse($Complain->created_at)->format('Y-m-d H:m a')}}</th>
           
